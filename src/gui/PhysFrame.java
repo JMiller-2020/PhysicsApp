@@ -22,5 +22,6 @@ public class PhysFrame extends JFrame {
 		setContentPane(content);
 		setMinimumSize(new Dimension(400, 300));
 		setSize(new Dimension(1024, 678));
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
