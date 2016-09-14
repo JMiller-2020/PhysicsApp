@@ -4,7 +4,7 @@ import gui.SimCanvas;
 
 public class SimRunnable implements Runnable
 {
-	private static final int TARGET_FPS = 60;
+	private static final int TARGET_FPS = 10;
 	private static final int ONE_SECOND = 1000;
 	private static final double TARGET_FRAME_LENGTH = ONE_SECOND / TARGET_FPS;
 	private boolean isRunning;
