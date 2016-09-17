@@ -10,13 +10,18 @@ public class SimNode extends Ellipse2D.Double implements SimDrawable
 	private static final double RADIUS = 5;
 	
 	private double lastX, lastY;
+	private boolean isStatic;
 	private boolean isContained;
 	private Component container;
 	
+	public SimNode(double x, double y) {
+		this(x, y, 0, 0);
+	}
 	public SimNode(double x, double y, double xVel, double yVel) {
 		super(x - RADIUS, y - RADIUS, RADIUS + RADIUS, RADIUS + RADIUS);
 		lastX = (x - RADIUS) - xVel;
 		lastY = (y - RADIUS) - yVel;
+		isStatic = false;
 	}
 	public void tick(double delta) {
 		double xVel = x - lastX;
@@ -53,8 +58,13 @@ System.out.println("y: " + y + ", yVel: " + yVel);
 		}
 	}
 	public void move(double moveX, double moveY) {
-		x += moveX;
-		y += moveY;
+		if(!isStatic) {
+			x += moveX;
+			y += moveY;
+		}
+	}
+	public void setStatic(boolean isStatic) {
+		this.isStatic = isStatic;
 	}
 	public void contain(Component container) {
 		isContained = true;
